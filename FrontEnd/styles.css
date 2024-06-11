@@ -1,0 +1,189 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.hero {
+  background-image: url("hero-img.gif");
+  background-size: contain;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero .cta-buttons .btn {
+  background-color: #ff5733;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section img {
+  max-width: 100%;
+  height: auto;
+}
+
+.features-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+}
+
+.role-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.role {
+  margin: 20px;
+  text-align: center;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact form input,
+.contact form textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.contact form button {
+  padding: 10px;
+  background-color: #ff5733;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer .quick-links,
+footer .social-media,
+footer .newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .newsletter input {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+footer .newsletter button {
+  padding: 10px;
+  background-color: #ff5733;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Login Form Styles */
+.login-body {
+  background-image: url("login-image.jpg"); /* Add your background image URL */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
