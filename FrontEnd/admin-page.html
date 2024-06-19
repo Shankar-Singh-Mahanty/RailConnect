@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>East Coast Railway CUG Admin Page</title>
+		<link
+			rel="stylesheet"
+			href="base.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="admin-page.css"
+		/>
+	</head>
+	<body>
+		<header>
+			<div class="header-top">
+				<h1>East Coast Railway</h1>
+				<h1>Closed User Group</h1>
+			</div>
+			<!-- <nav>
+            <ul>
+                <li><a href="index.html">Admin Page</a></li>
+            </ul>
+        </nav> -->
+		</header>
+
+		<section id="admin-services">
+			<h2>Admin Services</h2>
+			<div class="services-container">
+				<div class="service">
+					<a href="./create-dealer.html">
+						<img
+							src="icons/create_dealer.png"
+							alt="Create Dealer"
+						/>
+						<h3>Create Dealer</h3>
+						<p>Create new dealers for the CUG system.</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="cug-details.html">
+						<img
+							src="icons/cug_details.png"
+							alt="CUG Details"
+						/>
+						<h3>CUG Details</h3>
+						<p>
+							View and manage CUG details, activate or deactivate
+							CUGs.
+						</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="./add-cug.html">
+						<img
+							src="icons/add_cug1.png"
+							alt="Add New CUG"
+						/>
+						<h3>Add New CUG</h3>
+						<p>Add new CUG numbers to the system.</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="allotment-history.html">
+						<img
+							src="icons/allotment_history.png"
+							alt="Allotment History"
+						/>
+						<h3>Allotment History</h3>
+						<p>Check the history of CUG number allotments.</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="allocation-report.html">
+						<img
+							src="icons/allocation_report.png"
+							alt="Allocation-Wise Report"
+						/>
+						<h3>Allocation-Wise Report</h3>
+						<p>Generate reports based on CUG allocations.</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="status-report.html">
+						<img
+							src="icons/status_report.png"
+							alt="CUG Status Report"
+						/>
+						<h3>CUG Status Report</h3>
+						<p>Get the current status report of CUG numbers.</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="active-deactive-report.html">
+						<img
+							src="icons/active_deactive_report.png"
+							alt="Active / De-Active Report"
+						/>
+						<h3>Active / De-Active Report</h3>
+						<p>
+							View reports of active and deactivated CUG numbers.
+						</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="upload-bill.html">
+						<img
+							src="icons/upload_bill2.png"
+							alt="Upload CUG Bill"
+						/>
+						<h3>Upload CUG Bill</h3>
+						<p>Upload the latest CUG bills to the system.</p>
+					</a>
+				</div>
+				<div class="service">
+					<a href="upload-numbers.html">
+						<img
+							src="icons/upload_numbers.png"
+							alt="Upload New CUG Nos"
+						/>
+						<h3>Upload New CUG Nos</h3>
+						<p>Upload new CUG numbers for users.</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<p>&copy; 2024 East Coast Railway. All rights reserved.</p>
+			<div class="footer-links">
+				<a href="#">Privacy Policy</a>
+				<a href="#">Terms of Service</a>
+			</div>
+		</footer>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const card = document.querySelector(".service");
+
+				card.addEventListener("mousemove", (e) => {
+					const rect = card.getBoundingClientRect();
+					const x = e.clientX - rect.left;
+					const y = e.clientY - rect.top;
+					const centerX = rect.width / 2;
+					const centerY = rect.height / 2;
+
+					const shadowX = (x - centerX) / 10;
+					const shadowY = (y - centerY) / 10;
+
+					document.documentElement.style.setProperty(
+						"--card-shadow-x",
+						`${shadowX}rem`
+					);
+					document.documentElement.style.setProperty(
+						"--card-shadow-y",
+						`-${shadowY}rem`
+					);
+				});
+
+				card.addEventListener("mouseleave", () => {
+					document.documentElement.style.setProperty(
+						"--card-shadow-x",
+						"0px"
+					);
+					document.documentElement.style.setProperty(
+						"--card-shadow-y",
+						"0px"
+					);
+				});
+			});
+		</script>
+	</body>
+</html>
