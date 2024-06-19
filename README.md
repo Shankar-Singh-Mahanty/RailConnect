@@ -19,10 +19,10 @@ Welcome to **RailConnect**! This project, developed as an internship initiative 
 
 ### Prerequisites
 
-- [MongoDB](https://www.mongodb.com/)
-- [Express](https://expressjs.com/)
-- [React](https://reactjs.org/)
-- [Node.js](https://nodejs.org/)
+- [HTML]()
+- [CSS]()
+- [PHP]()
+- [XAMPP]()
 
 ### Installation
 
