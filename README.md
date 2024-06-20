@@ -1,6 +1,6 @@
 # RailConnect
 
-Welcome to **RailConnect**! This project, developed as an internship initiative by East Coast Railway, aims to create and manage a closed user group with advanced security features and exclusive access. It is perfect for fostering a secure, private, and interactive environment for railway personnel and related stakeholders.
+Welcome to **RailConnect**! This project, developed as an internship initiative by East Coast Railway, aims to create and manage a closed user group (CUG) with advanced security features and exclusive access. It is perfect for fostering a secure, private, and interactive environment for railway personnel and related stakeholders.
 
 ## Features
 
