@@ -1,9 +1,12 @@
 <?php
+// Set the default time zone
+date_default_timezone_set('Asia/Kolkata'); // Replace with your desired time zone
+
 // Database connection parameters
 $servername = "localhost";
 $username = "root";
-$password = "root123";
-$dbname = "admindb";
+$password = "Shan@1506";
+$dbname = "shandb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$username', '$email', '$password', '$contact', '$address', '$created_at', 'dealer')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New dealer created successfully";
+        echo "New dealer created successfully!";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
