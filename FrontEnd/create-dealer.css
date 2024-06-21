@@ -1,17 +1,141 @@
+/* Header styles */
+.header-top
+{
+    background-color: #4c4caf;
+    color: var(--white);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.header-top>h1
+{
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.header-top :nth-child(1)
+{
+    text-transform: uppercase;
+}
+
+main
+{
+    background-image: url(images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90svh;
+    min-height: 90vh;
+}
+
+/* Services section */
+#create-dealer
+{
+    color: var(--white);
+    padding: 3em 0;
+}
+
+#create-dealer h2
+{
+    font-size: 2rem;
+    margin-bottom: 1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form_container
+{
+    position: relative;
+    width: 70vw;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 4rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: background-color 500ms ease-in-out;
+}
+
+.form_container:is(:hover, :focus, :focus-within, :focus-visible)
+{
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.long-input
+{
+    grid-column: 1/3;
+}
+
+.input_box
+{
+    display: grid;
+    gap: 0.5em;
+}
+
+.input_box label
+{
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+input,
+textarea,
+select
+{
+    font: inherit;
+    padding: 0.5em;
+    border: none;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.input_box input:is(:focus, :valid)
+{
+    outline: 2px solid var(--accent-color);
+}
+
+.submit-button
+{
+    grid-column: 1/3;
+    padding: 0.75em 2em;
+    color: white;
+    max-width: 50%;
+    border: none;
+    border-radius: 4px;
+    margin-inline: auto;
+    margin-block-start: 1rem;
+    background-image: linear-gradient(to right, var(--accent-color), var(--accent-color-hover), var(--accent-color) 80%);
+    background-size: 200%;
+    cursor: pointer;
+    transition: background-position 250ms ease-in-out;
+    background-position: 0% 0%;
+}
+
+.submit-button:hover
+{
+    background-position: 100% 100%;
+}
+
 /* Footer styles */
-footer {
+footer
+{
     background-color: black;
     color: white;
     padding: 20px 0;
     text-align: center;
 }
 
-.footer-links a {
+.footer-links a
+{
     color: white;
     text-decoration: none;
     margin: 0 10px;
 }
 
-.footer-links a:hover {
+.footer-links a:hover
+{
     text-decoration: underline;
 }
