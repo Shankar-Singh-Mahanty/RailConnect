@@ -18,3 +18,5 @@ CREATE TABLE CUGDetails (
     CONSTRAINT CHK_cug_number_length CHECK (LENGTH(cug_number) = 11),  -- CUG number must be 11 digits
     CONSTRAINT CHK_emp_number_length CHECK (LENGTH(emp_number) = 12)  -- Employee number must be 12 digits long
 );
+
+Desc CUGDetails;

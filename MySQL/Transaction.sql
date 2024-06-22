@@ -13,3 +13,5 @@ CREATE TABLE Transaction (
         (transaction_type = 'De-allocation' AND amount < 0)  -- De-allocation amount must be negative
     )
 );
+
+Desc Transaction;
