@@ -1,6 +1,6 @@
 <?php
 // Set the default time zone
-date_default_timezone_set('Asia/Kolkata'); // Replace with your desired time zone
+date_default_timezone_set('Asia/Kolkata');
 
 // Database connection parameters
 $servername = "localhost";
@@ -25,20 +25,24 @@ function sanitizeInput($data) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = sanitizeInput($_POST["dealer-name"]);
     $email = sanitizeInput($_POST["email"]);
-    $password = password_hash(sanitizeInput($_POST["password"]), PASSWORD_BCRYPT); // Using bcrypt for password hashing
+    $password = sanitizeInput($_POST["password"]);
+    $hashed_password = hash('sha256', $password); // Using SHA-256 for password hashing
     $contact = sanitizeInput($_POST["contact_number"]);
     $address = sanitizeInput($_POST["address"]);
     $created_at = date("Y-m-d H:i:s");
 
-    $sql = "INSERT INTO Users (username, email, password, contact, address, created_at, role) 
-            VALUES ('$username', '$email', '$password', '$contact', '$address', '$created_at', 'dealer')";
+    $sql = "INSERT INTO users (username, email, password, contact, address, created_at, role) 
+            VALUES (?, ?, ?, ?, ?, ?, 'dealer')";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssss", $username, $email, $hashed_password, $contact, $address, $created_at);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         echo "New dealer created successfully!";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
 
+    $stmt->close();
     $conn->close();
 }
 ?>
