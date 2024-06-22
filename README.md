@@ -23,6 +23,7 @@ Welcome to **RailConnect**! This project, developed as an internship initiative 
 - [CSS]()
 - [PHP]()
 - [XAMPP]()
+- [MySQL]()
 
 ### Installation
 
@@ -35,24 +36,9 @@ Welcome to **RailConnect**! This project, developed as an internship initiative 
 
 2. **Install dependencies**
 
-   ```sh
-   npm install
-   ```
-
 3. **Set up environment variables**
 
-   Create a `.env` file in the root directory and add the following variables:
-
-   ```env
-   MONGO_URI=your_mongo_db_uri
-   JWT_SECRET=your_jwt_secret
-   ```
-
 4. **Run the application**
-
-   ```sh
-   npm start
-   ```
 
 ### Usage
 
