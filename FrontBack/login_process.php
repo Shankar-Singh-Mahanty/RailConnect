@@ -2,10 +2,10 @@
 session_start();
 
 // Database configuration
-$servername = "localhost";
-$username = "root";
-$password = "Shan@1506";
-$dbname = "shandb";
+$servername = "sql310.infinityfree.com";
+$username = "if0_36776697";
+$password = "ynM5koL6VnHkLYa";
+$dbname = "if0_36776697_raildb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
