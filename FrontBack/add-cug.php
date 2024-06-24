@@ -1,9 +1,9 @@
 <?php
-// Database configuration
-$servername = "sql300.infinityfree.com";
-$username = "if0_36778085";
-$password = "vPvrrjWCWRqS";
-$dbname = "if0_36778085_raildb"; // Replace with your database name
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "root123";
+$dbname = "admindb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,32 +13,65 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get form data
-$cugNo = $_POST['cugNo'];
-$name = $_POST['name'];
-$designation = $_POST['designation'];
-$division = $_POST['division'];
-$department = $_POST['department'];
-$billUnit = $_POST['billUnit'];
-$allocation = $_POST['allocation'];
-$employeeStatus = $_POST['employeeStatus'];
-$plan = $_POST['plan'];
-$action = $_POST['action']; // This will be either "ACTIVATE" or "DEACTIVATE"
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form data
+    $name = $_POST['NAME'];
+    $cug_no = $_POST['CUG_NO'];
+    $emp_no = $_POST['EMP_NO'];
+    $designation = $_POST['DESIGNATION'];
+    $division = $_POST['DIVISION'];
+    $department = $_POST['department'];
+    $bill_unit = $_POST['BILL_UNIT'];
+    $allocation = $_POST['ALLOCATION'];
+    $operator = $_POST['operator'];
+    $plan = $_POST['plan'];
+    $status = "Active"; // Default status
 
-// Determine status based on action
-$status = ($action === 'ACTIVATE') ? 'Active' : 'Inactive';
+    // Validate required fields
+    if (empty($name) || empty($cug_no) || empty($emp_no) || empty($designation) || empty($division) || $department == "default" || empty($bill_unit) || empty($allocation) || $operator == "default" || empty($plan)) {
+        echo "All fields are required.";
+    } else {
+        // Validate plan option
+        $allowed_plans = ['Plan A', 'Plan B', 'Plan C'];
+        if (!in_array($plan, $allowed_plans)) {
+            echo "Invalid plan selected.";
+            exit; // Stop further execution
+        }
 
-// Insert or update data in the database
-$sql = "INSERT INTO cug_details (cug_no, name, designation, division, department, bill_unit, allocation, employee_status, plan, status) 
-        VALUES ('$cugNo', '$name', '$designation', '$division', '$department', '$billUnit', '$allocation', '$employeeStatus', '$plan', '$status')
-        ON DUPLICATE KEY UPDATE 
-        name='$name', designation='$designation', division='$division', department='$department', bill_unit='$billUnit', allocation='$allocation', employee_status='$employeeStatus', plan='$plan', status='$status'";
+        // Map plan value to database ENUM values ('A', 'B', 'C')
+        $plan_value = '';
+        switch ($plan) {
+            case 'Plan A':
+                $plan_value = 'A';
+                break;
+            case 'Plan B':
+                $plan_value = 'B';
+                break;
+            case 'Plan C':
+                $plan_value = 'C';
+                break;
+            default:
+                echo "Invalid plan selected.";
+                exit; // Stop further execution
+        }
 
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+        // Prepare and bind
+        $stmt = $conn->prepare("INSERT INTO CUGDetails (cug_number, emp_number, empname, designation, division, department, bill_unit, allocation, operator, plan, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("isssssdssss", $cug_no, $emp_no, $name, $designation, $division, $department, $bill_unit, $allocation, $operator, $plan_value, $status);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo "New CUG allocated successfully.";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        // Close the statement
+        $stmt->close();
+    }
 }
 
+// Close connection
 $conn->close();
 ?>

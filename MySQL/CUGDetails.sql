@@ -1,6 +1,6 @@
 CREATE TABLE CUGDetails (
-    cug_number INT(50) PRIMARY KEY NOT NULL,
-    emp_number VARCHAR(50) UNIQUE NOT NULL,
+    cug_number BIGINT NOT NULL PRIMARY KEY, -- Use BIGINT for large numbers, as INT may not support 11 digits
+    emp_number VARCHAR(12) UNIQUE NOT NULL, -- Employee number is 12 digits long
     empname VARCHAR(100) NOT NULL,
     designation VARCHAR(100) NOT NULL,
     division VARCHAR(100) NOT NULL,
@@ -12,10 +12,10 @@ CREATE TABLE CUGDetails (
     status ENUM('Active', 'Inactive') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
+    
     CONSTRAINT CHK_allocation CHECK (allocation >= 0),  -- Allocation should be non-negative
-    CONSTRAINT CHK_cug_number_length CHECK (LENGTH(cug_number) = 11),  -- CUG number must be 11 digits
-    CONSTRAINT CHK_emp_number_length CHECK (LENGTH(emp_number) = 12)  -- Employee number must be 12 digits long
+    CONSTRAINT CHK_cug_number_length CHECK (CHAR_LENGTH(cug_number) = 11),  -- CUG number must be 11 digits
+    CONSTRAINT CHK_emp_number_length CHECK (CHAR_LENGTH(emp_number) = 12)  -- Employee number must be 12 digits long
 );
 
-Desc CUGDetails;
+DESC CUGDetails;
