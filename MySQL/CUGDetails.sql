@@ -3,7 +3,6 @@ CREATE TABLE CUGDetails (
     emp_number VARCHAR(12) UNIQUE NOT NULL, -- Employee number is 12 digits long
     empname VARCHAR(100) NOT NULL,
     designation VARCHAR(100) NOT NULL,
-    division VARCHAR(100) NOT NULL,
     department VARCHAR(100) NOT NULL,
     bill_unit VARCHAR(50) NOT NULL,
     allocation DECIMAL(10, 2) NOT NULL,

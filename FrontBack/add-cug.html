@@ -79,7 +79,7 @@
 		</div> -->
         <main id="main">
             <h2 class="heading">ALLOTMENT OF NEW CUG</h2>
-            <form class="form_container" action="" method="post">
+            <form class="form_container" action="add-cug.php" method="post">
                 <div class="input_box long-input">
                     <label for="name">Name</label>
                     <input
@@ -117,16 +117,6 @@
                         type="text"
                         placeholder="Enter Designation"
                         name="DESIGNATION"
-                        required
-                    />
-                </div>
-                <div class="input_box">
-                    <label for="division">Division</label>
-                    <input
-                        class="py-2 px-3"
-                        type="text"
-                        placeholder="Enter division"
-                        name="DIVISION"
                         required
                     />
                 </div>
@@ -177,6 +167,17 @@
                         <option value="vi">VI</option>
                     </select>
                 </div>
+                <div class="input_box">
+                    <label for="plan">Plan:</label>
+                    <input
+                        class="py-2 px-3"
+                        type="text"
+                        id="selectedPlan"
+                        name="plan"
+                        readonly
+                        required
+                    />
+                </div>
                 <section>
                     <div class="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
                         <div
@@ -201,10 +202,6 @@
                                     <span class="mr-2 text-5xl font-extrabold"
                                         >₹74.61</span
                                     >
-                                    <!-- <span
-										class="text-gray-500 dark:text-gray-400"
-										>/month</span
-									> -->
                                 </div>
                                 <h3 class="mb-4 text-xl font-semibold">
                                     Validity: 84days
@@ -219,12 +216,13 @@
                                 >
                                     Talktime: Unlimited
                                 </p>
-
-                                <a
-                                    href="#"
-                                    class="text-white bg-accent-color hover:bg-accent-color-hover focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm mt-4 px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
-                                    >Select A</a
+                                <button
+                                    type="button"
+                                    data-plan="Plan A"
+                                    class="plan-option text-white bg-accent-color hover:bg-accent-color-hover focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm mt-4 px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
                                 >
+                                    Select A
+                                </button>
                             </div>
                             <!-- Pricing Card -->
                             <div
@@ -236,10 +234,6 @@
                                     <span class="mr-2 text-5xl font-extrabold"
                                         >₹59.05</span
                                     >
-                                    <!-- <span
-										class="text-gray-500 dark:text-gray-400"
-										>/month</span
-									> -->
                                 </div>
                                 <h3 class="mb-4 text-xl font-semibold">
                                     Validity: 56days
@@ -254,12 +248,13 @@
                                 >
                                     Talktime: Unlimited
                                 </p>
-
-                                <a
-                                    href="#"
-                                    class="text-white bg-accent-color hover:bg-accent-color-hover focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm mt-4 px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
-                                    >Select B</a
+                                <button
+                                    type="button"
+                                    data-plan="Plan B"
+                                    class="plan-option text-white bg-accent-color hover:bg-accent-color-hover focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm mt-4 px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
                                 >
+                                    Select B
+                                </button>
                             </div>
                             <!-- Pricing Card -->
                             <div
@@ -271,10 +266,6 @@
                                     <span class="mr-2 text-5xl font-extrabold"
                                         >₹39.9</span
                                     >
-                                    <!-- <span
-										class="text-gray-500 dark:text-gray-400"
-										>/month</span
-									> -->
                                 </div>
                                 <h3 class="mb-4 text-xl font-semibold">
                                     Validity: 28days
@@ -289,12 +280,13 @@
                                 >
                                     Talktime: Unlimited
                                 </p>
-
-                                <a
-                                    href="#"
-                                    class="text-white bg-accent-color hover:bg-accent-color-hover focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm mt-4 px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
-                                    >Select C</a
+                                <button
+                                    type="button"
+                                    data-plan="Plan C"
+                                    class="plan-option text-white bg-accent-color hover:bg-accent-color-hover focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm mt-4 px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900"
                                 >
+                                    Select C
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -302,6 +294,18 @@
                 <button class="submit-button" type="submit">Activate</button>
             </form>
         </main>
-        <script src="cug.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const planOptions = document.querySelectorAll(".plan-option");
+
+                planOptions.forEach((option) => {
+                    option.addEventListener("click", function () {
+                        document.getElementById("selectedPlan").value =
+                            this.dataset.plan;
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
