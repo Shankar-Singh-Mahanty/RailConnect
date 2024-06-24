@@ -1,6 +1,5 @@
 CREATE TABLE CUGDetails (
-    cug_id INT PRIMARY KEY,
-    cug_number VARCHAR(50) UNIQUE NOT NULL,
+    cug_number INT(50) PRIMARY KEY NOT NULL,
     emp_number VARCHAR(50) UNIQUE NOT NULL,
     empname VARCHAR(100) NOT NULL,
     designation VARCHAR(100) NOT NULL,

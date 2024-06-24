@@ -3,10 +3,10 @@
 date_default_timezone_set('Asia/Kolkata');
 
 // Database connection parameters
-$servername = "sql310.infinityfree.com";
-$username = "if0_36776697";
-$password = "ynM5koL6VnHkLYa";
-$dbname = "if0_36776697_raildb";
+$servername = "sql300.infinityfree.com";
+$username = "if0_36778085";
+$password = "vPvrrjWCWRqS";
+$dbname = "if0_36778085_raildb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

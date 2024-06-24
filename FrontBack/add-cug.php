@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-$servername = "sql310.infinityfree.com";
-$username = "if0_36776697";
-$password = "ynM5koL6VnHkLYa";
-$dbname = "if0_36776697_raildb"; // Replace with your database name
+$servername = "sql300.infinityfree.com";
+$username = "if0_36778085";
+$password = "vPvrrjWCWRqS";
+$dbname = "if0_36778085_raildb"; // Replace with your database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
