@@ -18,3 +18,5 @@ CREATE TABLE CUGDetails (
 );
 
 DESC CUGDetails;
+
+SELECT * FROM CUGDetails;
