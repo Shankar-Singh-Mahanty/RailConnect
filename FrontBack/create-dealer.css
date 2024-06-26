@@ -42,6 +42,14 @@ main
     text-transform: uppercase;
 }
 
+.session-message
+{
+    text-align: center;
+    color: var(--white);
+    margin-block: 1rem;
+    text-shadow: 0 0 4px black;
+}
+
 .form_container
 {
     position: relative;
