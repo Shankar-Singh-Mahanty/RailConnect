@@ -7,8 +7,8 @@ date_default_timezone_set('Asia/Kolkata');
 // Database connection parameters
 $servername = "localhost";
 $username = "root";
-$password = "Shan@1506";
-$dbname = "shandb";
+$password = "";
+$dbname = "raildb";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -80,7 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <section id="create-dealer">
-            <h2>Create Dealer</h2>
+            <div class="heading-container">
+                <button class="back-btn" onclick="window.location.href = './admin-page.html'"><img
+                        src="https://img.icons8.com/ios/32/long-arrow-left.png" alt="back button"></button>
+                <h2 class="heading">Create Dealer</h2>
+            </div>
             <?php
             if (isset($_SESSION['message'])) {
                 echo "<p class='session-message'>" . $_SESSION['message'] . "</p>";

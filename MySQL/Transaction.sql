@@ -3,7 +3,7 @@ CREATE TABLE Transaction (
     cug_number INT,
     user_id INT,
     transaction_type ENUM('Allocation', 'De-allocation'),
-    amount DECIMAL(10, 2),cugdetails
+    amount DECIMAL(10, 2),
     transaction_date DATE,
     FOREIGN KEY (cug_number) REFERENCES CUGDetails(cug_number),
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
