@@ -1,20 +1,5 @@
 <?php
-session_start(); // Start the session
-
-// Set the default time zone
-date_default_timezone_set('Asia/Kolkata');
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "raildb";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
-
+include 'db_connect.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$cug_no = $_POST['cugno'];
 	$periodic_charge = $_POST['periodic_charge'];
