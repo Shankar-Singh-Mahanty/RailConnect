@@ -1,10 +1,12 @@
 CREATE TABLE CUGDetails (
-    cug_number BIGINT NOT NULL PRIMARY KEY, -- Use BIGINT for large numbers, as INT may not support 11 digits
-    emp_number VARCHAR(12) UNIQUE NOT NULL, -- Employee number is 12 digits long
+	cug_id INT AUTO_INCREMENT PRIMARY KEY,
+    cug_number BIGINT NOT NULL, -- Use BIGINT for large numbers, as INT may not support 11 digits
+    emp_number BIGINT UNIQUE NOT NULL, -- Employee number is 12 digits long
     empname VARCHAR(100) NOT NULL,
     designation VARCHAR(100) NOT NULL,
+    unit VARCHAR(50) NOT NULL,
     department VARCHAR(100) NOT NULL,
-    bill_unit VARCHAR(50) NOT NULL,
+    bill_unit_no VARCHAR(50) NOT NULL,
     allocation DECIMAL(10, 2) NOT NULL,
     operator VARCHAR(50) NOT NULL,
     plan ENUM('A', 'B', 'C') NOT NULL,
