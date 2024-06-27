@@ -31,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$conn->close();
 }
 
-
-$conn->close();
 ?>
 
 
@@ -62,44 +60,94 @@ $conn->close();
 						src="https://img.icons8.com/ios/32/long-arrow-left.png" alt="back button"></button>
 				<h2 class="heading">Upload CUG Numbers</h2>
 			</div>
+			<?php
+            if (isset($_SESSION['message'])) {
+                echo "<p class='session-message'>" . $_SESSION['message'] . "</p>";
+                unset($_SESSION['message']);
+            }
+            ?>
 			<form class="form_container" action="#" method="post">
 				<div class="input_box">
 					<label for="cugno">CUG NO</label>
-					<input type="text" id="cugno" name="cugno" placeholder="Enter CUG number" required />
+					<input 
+						type="text" 
+						id="cugno" 
+						name="cugno" 
+						placeholder="Enter CUG number" 
+						required 
+					/>
 				</div>
 				<div class="input_box">
 					<label for="periodic_charge">Periodic Charge</label>
-					<input type="number" id="periodic_charge" name="periodic_charge" placeholder="Enter Periodic Charge"
-						required />
+					<input 
+						type="number" 
+						id="periodic_charge" 
+						name="periodic_charge" 
+						placeholder="Enter Periodic Charge"
+						required 
+					/>
 				</div>
 				<div class="input_box">
 					<label for="usage_amount">Usage Amount</label>
-					<input type="number" id="usage_amount" name="usage_amount" placeholder="Enter Usage Amount"
-						required />
+					<input 
+						type="number" 
+						id="usage_amount" 
+						name="usage_amount" 
+						placeholder="Enter Usage Amount"
+						required 
+					/>
 				</div>
 				<div class="input_box">
 					<label for="data_amount">Data Amount</label>
-					<input type="number" id="data_amount" name="data_amount" placeholder="Enter Data Amount" required />
+					<input 
+						type="number" 
+						id="data_amount" 
+						name="data_amount" 
+						placeholder="Enter Data Amount" 
+						required 
+					/>
 				</div>
 				<div class="input_box">
 					<label for="voice">Voice</label>
-					<input type="number" id="voice" name="voice" placeholder="Enter Voice charges" required />
+					<input 
+						type="number" 
+						id="voice" 
+						name="voice" 
+						placeholder="Enter Voice charges" 
+						required 
+					/>
 				</div>
 				<div class="input_box">
 					<label for="video">Video</label>
-					<input type="number" id="video" name="video" placeholder="Enter Video charges" required />
+					<input 
+						type="number" 
+						id="video" 
+						name="video" 
+						placeholder="Enter Video charges" 
+						required 
+					/>
 				</div>
 				<div class="input_box">
 					<label for="sms">SMS</label>
-					<input type="number" id="sms" name="sms" placeholder="Enter SMS charges" required />
+					<input 
+						type="number" 
+						id="sms" 
+						name="sms" 
+						placeholder="Enter SMS charges" 
+						required 
+					/>
 				</div>
 				<div class="input_box">
 					<label for="vas">VAS</label>
-					<input type="number" id="vas" name="vas" placeholder="Enter VAS charges" required />
+					<input 
+						type="number" 
+						id="vas" 
+						name="vas" 
+						placeholder="Enter VAS charges" 
+						required 
+					/>
 				</div>
-				<button class="submit-button" type="submit">
-					Submit
-				</button>
+				<button class="submit-button" type="submit">Submit</button>
 			</form>
 		</section>
 	</main>

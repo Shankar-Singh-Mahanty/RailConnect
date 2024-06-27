@@ -31,7 +31,7 @@ main
 #create-dealer
 {
     color: var(--white);
-    padding: 3em 0;
+    padding: 3em;
 }
 
 #create-dealer h2
@@ -42,6 +42,53 @@ main
     text-transform: uppercase;
 	text-shadow: 0 0 20px black;
 }
+
+
+.heading-container
+{
+    display: grid;
+    grid-template-columns: 2.5rem 1fr 2.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-block-end: 1rem;
+}
+
+.session-message
+{
+    text-align: center;
+    color: var(--white);
+    font-weight: bold;
+    margin-block: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    width: max-content;
+    margin-inline: auto;
+    border-radius: 4px;
+}
+
+.back-btn
+{
+    padding: 0.5rem;
+    width: 2.5rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--white);
+    aspect-ratio: 1;
+}
+
+
+.heading
+{
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+    color: var(--white);
+    text-align: center;
+    justify-self: center;
+}
+
 
 .form_container
 {

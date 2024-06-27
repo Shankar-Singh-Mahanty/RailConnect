@@ -1,5 +1,8 @@
 <?php
+
+// Include database connection script
 include 'db_connect.php';
+
 // Get form data
 $cugNo = $_POST['cugNo'];
 $name = $_POST['name'];
