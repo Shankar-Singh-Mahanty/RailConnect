@@ -1,5 +1,12 @@
 <?php
+session_start(); // Start the session
+
+// Set the default time zone
+date_default_timezone_set('Asia/Kolkata');
+
+// Include database connection script
 include 'db_connect.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$cug_no = $_POST['cugno'];
 	$periodic_charge = $_POST['periodic_charge'];

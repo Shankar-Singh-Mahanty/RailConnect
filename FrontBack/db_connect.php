@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "root123";
-$dbname = "admindb";
+$password = "";
+$dbname = "raildb";
 
 // Enable detailed error reporting
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Include database connection script
 include 'db_connect.php';
 
 // Retrieve form data

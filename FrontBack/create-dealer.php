@@ -4,7 +4,9 @@ session_start(); // Start the session
 // Set the default time zone
 date_default_timezone_set('Asia/Kolkata');
 
+// Include database connection script
 include 'db_connect.php';
+
 // Function to sanitize user input
 function sanitizeInput($data)
 {

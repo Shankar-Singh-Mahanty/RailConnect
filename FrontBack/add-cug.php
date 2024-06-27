@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// Include database connection script
 include 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
