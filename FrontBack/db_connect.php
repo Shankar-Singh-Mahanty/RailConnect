@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "tiger";
 $dbname = "raildb";
 
 // Enable detailed error reporting
