@@ -1,3 +1,5 @@
+-- Create table
+
 CREATE TABLE uploaded_files (
     id INT AUTO_INCREMENT PRIMARY KEY,
     file_name VARCHAR(255) NOT NULL,
@@ -7,4 +9,8 @@ CREATE TABLE uploaded_files (
     upload_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Describe table
+Desc uploaded_files;
+
+-- view all the records
 SELECT * FROM uploaded_files;
