@@ -80,7 +80,7 @@
                         // Move the file to the directory
                         if (move_uploaded_file($fileTmpPath, $dest_path)) {
                             // Insert file info into database
-                            $query = "INSERT INTO uploaded_files (file_name, file_size, file_type, upload_path) VALUES (?, ?, ?, ?)";
+                            $query = "INSERT INTO uploaded_files (file_name, file_size, file_type, stored_path) VALUES (?, ?, ?, ?)";
                             $stmt = $conn->prepare($query);
                             $stmt->bind_param("siss", $fileName, $fileSize, $fileType, $dest_path);
                             $stmt->execute();
@@ -93,7 +93,7 @@
 
                             $stmt->close();
                         } else {
-                            echo '<div class="message error">There was some error moving the file to upload directory. Please make sure the upload directory is writable by web server.</div>';
+                            echo '<div class="message error">There was some error moving the file to store directory. Please make sure the store directory is writable by web server.</div>';
                         }
                     } else {
                         echo '<div class="message error">Upload failed. Allowed file types: ' . implode(',', $allowedfileExtensions) . '</div>';

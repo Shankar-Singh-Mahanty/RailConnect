@@ -5,7 +5,7 @@ CREATE TABLE uploaded_files (
     file_name VARCHAR(255) NOT NULL,
     file_size INT NOT NULL,
     file_type VARCHAR(100) NOT NULL,
-    upload_path VARCHAR(255) NOT NULL,
+    stored_path VARCHAR(255) NOT NULL,
     upload_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
