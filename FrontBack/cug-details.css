@@ -20,7 +20,7 @@
 
 main
 {
-	background-image: url(images/banner.jpg);
+	background-image: url(images/banner.webp);
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 90svh;

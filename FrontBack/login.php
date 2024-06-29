@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +17,7 @@ session_start();
         <input type="password" placeholder="Password" name="password" required />
         <input type="submit" value="Log In" />
         <?php
+        session_start();
         if (isset($_SESSION['errorMessage'])) {
             echo '<div class="error">' . $_SESSION['errorMessage'] . '</div>';
             unset($_SESSION['errorMessage']);

@@ -3,7 +3,7 @@ body
     display: grid;
     place-content: center;
     min-height: 100vh;
-    background-image: url(images/banner6.jpg);
+    background-image: url(images/banner6.webp);
     background-size: cover;
 }
 
@@ -138,4 +138,10 @@ select
 .submit-button:hover
 {
     background-position: 100% 100%;
+}
+
+.selected-option
+{
+    outline: 4px solid var(--accent-color);
+    background-color: color-mix(in lab, var(--accent-color-hover) 20%, white) !important;
 }

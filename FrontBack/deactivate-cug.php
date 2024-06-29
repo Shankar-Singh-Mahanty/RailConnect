@@ -40,7 +40,7 @@
         if (isset($_POST['deactivate'])) {
             $cug_no = $_POST['cugNo'];
 
-            $update_sql = "UPDATE CUGDetails SET status = 'Inactive' WHERE cug_number = ?";
+            $update_sql = "UPDATE cugdetails SET status = 'Inactive' WHERE cug_number = ?";
             $stmt = $conn->prepare($update_sql);
             $stmt->bind_param("s", $cug_no);
 
@@ -54,7 +54,7 @@
         } else {
             $cug_no = $_POST['cugNo'];
 
-            $sql = "SELECT * FROM CUGDetails WHERE cug_number = ?";
+            $sql = "SELECT * FROM cugdetails WHERE cug_number = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("s", $cug_no);
             $stmt->execute();
