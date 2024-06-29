@@ -73,9 +73,9 @@
                     $allowedfileExtensions = array('pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv');
 
                     if (in_array($fileExtension, $allowedfileExtensions)) {
-                        // Directory where uploaded files will be saved
-                        $uploadFileDir = 'C:\Users\samal\Videos\uploads';
-                        $dest_path = $uploadFileDir . $fileName;
+                        // Directory where uploaded files will be saved (@stored path)
+                        $storedFileDir = 'D:\ECoST\Uploaded_Files';
+                        $dest_path = $storedFileDir . $fileName;
 
                         // Move the file to the directory
                         if (move_uploaded_file($fileTmpPath, $dest_path)) {
