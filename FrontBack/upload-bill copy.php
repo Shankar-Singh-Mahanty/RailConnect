@@ -7,6 +7,43 @@
     <title>Upload CUG Bill</title>
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="upload-bill.css" />
+    <style>
+        .custom-file-input {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .custom-file-input input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .custom-file-input::before {
+            content: 'Choose file';
+            display: inline-block;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .custom-file-input input[type="file"]:hover + .file-name,
+        .custom-file-input input[type="file"]:focus + .file-name {
+            border-color: #007bff;
+        }
+
+        .file-name {
+            display: inline-block;
+            margin-left: 10px;
+            font-style: italic;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,9 +62,10 @@
                 <h2 class="heading">Upload Bill</h2>
             </div>
             <form class="form_container" action="" method="post" enctype="multipart/form-data">
-                <div class="input_box long-input">
+                <div class="input_box long-input custom-file-input">
                     <label for="cugno">Upload CUG Bill</label>
-                    <input type="file" id="cugno" name="cugno" required />
+                    <input type="file" id="cugno" name="cugno" required onchange="showFileName()" />
+                    <span id="file-name" class="file-name"></span>
                 </div>
                 <button class="submit-button" type="submit">
                     Submit
@@ -95,6 +133,15 @@
             <a href="#">Terms of Service</a>
         </div>
     </footer>
+
+    <script>
+        function showFileName() {
+            const input = document.getElementById('cugno');
+            const fileName = input.files[0].name;
+            const fileNameSpan = document.getElementById('file-name');
+            fileNameSpan.textContent = fileName;
+        }
+    </script>
 </body>
 
 </html>
