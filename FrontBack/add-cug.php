@@ -20,10 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = [];
     if (empty($name))
         $errors[] = "Name is required.";
-    if (empty($cug_no) || strlen($cug_no) > 11 || !is_numeric($cug_no))
-        $errors[] = "CUG No must be less than 11 digits.";
-    if (empty($emp_no) || strlen($emp_no) != 12 || !is_numeric($emp_no))
-        $errors[] = "Employee No must be a 12-digit number.";
+    if (empty($cug_no)) {
+        $errors[] = "CUG No is required.";
+    } elseif (!is_numeric($cug_no) || (strlen($cug_no) != 10 && strlen($cug_no) != 11) || $cug_no <= 0) {
+        $errors[] = "CUG No must be a positive numeric value and either 10 or 11 digits long.";
+    }
+    if (empty($emp_no)) {
+        $errors[] = "Employee No is required.";
+    } elseif (!is_numeric($emp_no) || strlen($emp_no) != 12 || $emp_no <= 0) {
+        $errors[] = "Employee No must be a 12-digit numeric value and positive.";
+    }
     if (empty($designation))
         $errors[] = "Designation is required.";
     if ($unit == "default")
