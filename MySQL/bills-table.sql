@@ -14,9 +14,6 @@ CREATE TABLE bills (
     FOREIGN KEY (cug_id) REFERENCES cugdetails(cug_id)
 );
 
--- Describe table
-Desc bills;
-
 -- Insert Data
 
 INSERT INTO bills (cug_id, periodic_charge, usage_amount, data_amount, voice, video, sms, vas)
@@ -73,7 +70,3 @@ INSERT INTO bills (cug_id, periodic_charge, usage_amount, data_amount, voice, vi
 SELECT c.cug_id, 500.00, 200.00, 100.00, 50.00, 30.00, 20.00, 10.00
 FROM cugdetails c
 WHERE c.cug_number = 9677142604 AND c.status = 'Active';
-
-
--- view all the records of the table
-SELECT * FROM bills;

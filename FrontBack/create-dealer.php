@@ -50,16 +50,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Dealer</title>
+    <link rel="icon" type="image/webp" href="logo.webp" />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="create-dealer.css" />
 </head>
 
 <body>
     <header>
-        <div class="header-top">
-            <h1>East Coast Railway</h1>
-            <h1>Closed User Group</h1>
-        </div>
+    <div class="header-top">
+			<a href="./">
+				<h1>East Coast Railway</h1>
+				<h1>Closed User Group</h1>
+			</a>
+		</div>
         <!-- <nav>
             <ul>
                 <li><a href="index.html">Admin Page</a></li>
@@ -71,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section id="create-dealer">
             <div class="heading-container">
                 <button class="back-btn" onclick="window.location.href = './admin-page.html'"><img
-                        src="https://img.icons8.com/ios/32/long-arrow-left.png" alt="back button"></button>
+                        src="icon/back-button.webp" alt="back button"></button>
                 <h2 class="heading">Create Dealer</h2>
             </div>
             <?php

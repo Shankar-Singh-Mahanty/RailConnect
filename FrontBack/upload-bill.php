@@ -5,23 +5,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upload CUG Bill</title>
+    <link rel="icon" type="image/webp" href="logo.webp" />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="upload-bill.css" />
 </head>
 
 <body>
     <header>
-        <div class="header-top">
-            <h1>East Coast Railway</h1>
-            <h1>Closed User Group</h1>
-        </div>
+    <div class="header-top">
+			<a href="./">
+				<h1>East Coast Railway</h1>
+				<h1>Closed User Group</h1>
+			</a>
+		</div>
     </header>
 
     <main>
         <section id="create-dealer">
             <div class="heading-container">
-                <button class="back-btn" onclick="window.location.href = './admin-page.html'"><img
-                        src="https://img.icons8.com/ios/32/long-arrow-left.png" alt="back button"></button>
+                <button class="back-btn" onclick="window.location.href = './admin-page.html'">
+                    <img src="icon/back-button.webp" alt="back button">
+                </button>
                 <h2 class="heading">Upload Bill</h2>
             </div>
             <form class="form_container" action="" method="post" enctype="multipart/form-data">
@@ -52,8 +56,8 @@
                     $allowedfileExtensions = array('pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv');
 
                     if (in_array($fileExtension, $allowedfileExtensions)) {
-                        // Directory where uploaded files will be saved (@stored path)
-                        $storedFileDir = 'D:\ECoST\Uploaded_Files\ecost_rail_';
+                        // Directory where uploaded files will be saved (relative to the project root)
+                        $storedFileDir = 'uploads/';
                         $dest_path = $storedFileDir . $fileName;
 
                         // Move the file to the directory
@@ -72,7 +76,7 @@
 
                             $stmt->close();
                         } else {
-                            echo '<div class="message error">There was some error moving the file to store directory. Please make sure the store directory is writable by web server.</div>';
+                            echo '<div class="message error">There was some error moving the file to store directory. Please make sure the store directory is writable by the web server.</div>';
                         }
                     } else {
                         echo '<div class="message error">Upload failed. Allowed file types: ' . implode(',', $allowedfileExtensions) . '</div>';

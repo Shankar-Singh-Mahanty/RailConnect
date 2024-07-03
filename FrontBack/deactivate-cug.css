@@ -8,21 +8,28 @@ body
 /* Header styles */
 .header-top
 {
-	background-color: #4c4caf;
-	color: var(--white);
-	padding: 1rem 0;
-	text-align: center;
+    background-color: #4c4caf;
+    padding: 1rem 0;
+    text-align: center;
 }
 
-.header-top>h1
+.header-top a
 {
-	margin: 0;
-	font-size: 1.8rem;
+    text-decoration: none !important;
+
+}
+
+.header-top h1
+{
+    margin: 0;
+    font-size: 1.8rem;
+    text-transform: none;
+    color: white !important;
 }
 
 .header-top :nth-child(1)
 {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 

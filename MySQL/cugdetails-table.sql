@@ -2,23 +2,20 @@
 
 CREATE TABLE cugdetails (
     cug_id INT AUTO_INCREMENT PRIMARY KEY,
-    cug_number BIGINT NOT NULL CHECK (CHAR_LENGTH(cug_number) IN (10, 11) AND cug_number > 0),
-    emp_number BIGINT UNIQUE NOT NULL CHECK (CHAR_LENGTH(emp_number) = 12 AND emp_number > 0),
+    cug_number BIGINT NOT NULL CHECK (CHAR_LENGTH(cug_number) IN (10, 11)),
+    emp_number BIGINT UNIQUE NOT NULL CHECK (CHAR_LENGTH(emp_number) = 12),
     empname VARCHAR(100) NOT NULL,
     designation VARCHAR(100) NOT NULL,
     unit VARCHAR(50) NOT NULL,
     department VARCHAR(100) NOT NULL,
     bill_unit_no VARCHAR(50) NOT NULL,
-    allocation DECIMAL(10, 2) NOT NULL CHECK (allocation >= 0),
+    allocation DECIMAL(10) NOT NULL CHECK (allocation >= 0),
     operator VARCHAR(50) NOT NULL,
     plan ENUM('A', 'B', 'C') NOT NULL,
     status ENUM('Active', 'Inactive') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
--- Describe the structure of table
-Desc cugdetails;
 
 -- Insert Data
 
@@ -53,6 +50,3 @@ VALUES
 (9677137458, 362276237069, 'SUMDND MBPDNTY', 'FAnCAO/TRAFFIC', 'CON', 'ENGG', '06025', 873106, 'JIO', 'C', 'Active'),
 (9677141905, 363155739851, 'Y.DNDND', 'FAnCAO/WnS', 'CON', 'S & T', '06853', 873106, 'JIO', 'C', 'Active'),
 (9677145886, 365154987804, 'NARMDL CPDNDRD SDRDNGA', 'AFA', 'CON', 'ENGG', '06287', 873106, 'JIO', 'C', 'Active');
-
--- view all the records
-SELECT * FROM cugdetails;

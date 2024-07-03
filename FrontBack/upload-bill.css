@@ -1,22 +1,32 @@
 /* Header styles */
-.header-top {
+.header-top
+{
     background-color: #4c4caf;
-    color: var(--white);
     padding: 1rem 0;
     text-align: center;
 }
 
-.header-top > h1 {
-    margin: 0;
-    font-size: 1.8rem;
+.header-top a
+{
+    text-decoration: none !important;
+
 }
 
-.header-top :nth-child(1) {
+.header-top h1
+{
+    margin: 0;
+    font-size: 1.8rem;
+    text-transform: none;
+    color: white !important;
+}
+
+.header-top :nth-child(1)
+{
     text-transform: uppercase;
 }
 
 main {
-    background-image: url(images/upload-bill.jpg);
+    background-image: url(images/upload-bill.webp);
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 90svh;
@@ -119,6 +129,7 @@ select {
     border: none;
     border-radius: 4px;
     background-color: #eee;
+    color: var(--black);
 }
 
 .input_box input:is(:focus, :valid) {
