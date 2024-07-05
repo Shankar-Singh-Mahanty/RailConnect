@@ -5,6 +5,17 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'guest';
 // Include database connection script
 include 'db_connect.php';
 
+$name = "";
+$cug_no = "";
+$emp_no = "";
+$designation = "";
+$unit = "default";
+$department = "default";
+$bill_unit_no = "";
+$allocation = "";
+$operator = "default";
+$plan = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST['NAME']);
     $cug_no = trim($_POST['CUG_NO']);
@@ -48,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
+        $_SESSION['form_data'] = $_POST;
     } else {
         $stmt = $conn->prepare("INSERT INTO cugdetails (cug_number, emp_number, empname, designation, unit, department, bill_unit_no, allocation, operator, plan, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if ($stmt === false) {
@@ -67,6 +79,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     header("Location: add-cug.php");
     exit();
+}
+
+if (isset($_SESSION['form_data'])) {
+    $name = $_SESSION['form_data']['NAME'];
+    $cug_no = $_SESSION['form_data']['CUG_NO'];
+    $emp_no = $_SESSION['form_data']['EMP_NO'];
+    $designation = $_SESSION['form_data']['DESIGNATION'];
+    $unit = $_SESSION['form_data']['UNIT'];
+    $department = $_SESSION['form_data']['DEPARTMENT'];
+    $bill_unit_no = $_SESSION['form_data']['BILL_UNIT_NO'];
+    $allocation = $_SESSION['form_data']['ALLOCATION'];
+    $operator = $_SESSION['form_data']['OPERATOR'];
+    $plan = $_SESSION['form_data']['PLAN'];
+    unset($_SESSION['form_data']);
 }
 
 $conn->close();
@@ -181,70 +207,86 @@ $conn->close();
 
         <form class="form_container" action="add-cug.php" method="post">
             <div class="input_box long-input">
-                <label for="name">Name</label>
-                <input class="py-2 px-3" type="text" placeholder="Enter Name" name="NAME" required />
+                <label for="cugno">CUG No</label>
+                <input class="py-2 px-3" type="number" placeholder="Enter CUG no." name="CUG_NO"
+                    value="<?php echo htmlspecialchars($cug_no); ?>" required />
             </div>
             <div class="input_box">
-                <label for="cugno">CUG No</label>
-                <input class="py-2 px-3" type="number" placeholder="Enter CUG no." name="CUG_NO" required />
+                <label for="name">Name</label>
+                <input class="py-2 px-3" type="text" placeholder="Enter Name" name="NAME"
+                    value="<?php echo htmlspecialchars($name); ?>" required />
             </div>
             <div class="input_box">
                 <label for="empno">Employee No.</label>
-                <input class="py-2 px-3" type="number" placeholder="Enter Employee no." name="EMP_NO" required />
+                <input class="py-2 px-3" type="number" placeholder="Enter Employee no." name="EMP_NO"
+                    value="<?php echo htmlspecialchars($emp_no); ?>" required />
             </div>
             <div class="input_box">
                 <label for="designation">Designation</label>
-                <input class="py-2 px-3" type="text" placeholder="Enter Designation" name="DESIGNATION" required />
+                <input class="py-2 px-3" type="text" placeholder="Enter Designation" name="DESIGNATION"
+                    value="<?php echo htmlspecialchars($designation); ?>" required />
             </div>
             <div class="input_box">
                 <label for="unit">Unit</label>
-                <select class="py-2 px-2" id="unit" name="UNIT">
-                    <option value="default">Select an Option</option>
-                    <option value="CON">CON</option>
-                    <option value="HQ">HQ</option>
-                    <option value="MCS">MCS</option>
+                <select class="py-2 px-2" id="unit" name="UNIT" required>
+                    <option value="default" <?php if ($unit == 'default')
+                        echo 'selected'; ?>>Select unit</option>
+                    <option value="CON" <?php echo ($unit == 'CON') ? 'selected' : ''; ?>>CON</option>
+                    <option value="HQ" <?php echo ($unit == 'HQ') ? 'selected' : ''; ?>>HQ</option>
+                    <option value="MCS" <?php echo ($unit == 'MCS') ? 'selected' : ''; ?>>MCS</option>
+
                 </select>
             </div>
             <div class="input_box">
                 <label for="department">Department</label>
-                <select class="py-2 px-2" id="department" name="DEPARTMENT">
-                    <option value="default">Select an Option</option>
-                    <option value="S&T">S&T</option>
-                    <option value="ENGG">ENGG</option>
-                    <option value="ACCTS">ACCTS</option>
-                    <option value="ELECT">ELECT</option>
-                    <option value="OPTG">OPTG</option>
-                    <option value="PERS">PERS</option>
-                    <option value="SECURITY">SECURITY</option>
-                    <option value="AUDIT">AUDIT</option>
-                    <option value="MED">MED</option>
-                    <option value="COMM">COMM</option>
-                    <option value="GA">GA</option>
-                    <option value="MECH">MECH</option>
-                    <option value="SAFETY">SAFETY</option>
-                    <option value="STORES">STORES</option>
-                    <option value="RRC">RRC</option>
-                    <option value="WAGON">WAGON</option>
-                    <option value="WELFARE">WELFARE</option>
+                <select class="py-2 px-2" id="department" name="DEPARTMENT" required>
+                    <option value="default" <?php if ($department == 'default')
+                        echo 'selected'; ?>>Select department
+                    </option>
+                    <option value="S&T" <?php echo ($department == 'S&T') ? 'selected' : ''; ?>>S&T</option>
+                    <option value="ENGG" <?php echo ($department == 'ENGG') ? 'selected' : ''; ?>>ENGG</option>
+                    <option value="ACCTS" <?php echo ($department == 'ACCTS') ? 'selected' : ''; ?>>ACCTS</option>
+                    <option value="ELECT" <?php echo ($department == 'ELECT') ? 'selected' : ''; ?>>ELECT</option>
+                    <option value="OPTG" <?php echo ($department == 'OPTG') ? 'selected' : ''; ?>>OPTG</option>
+                    <option value="PERS" <?php echo ($department == 'PERS') ? 'selected' : ''; ?>>PERS</option>
+                    <option value="SECURITY" <?php echo ($department == 'SECURITY') ? 'selected' : ''; ?>>SECURITY
+                    </option>
+                    <option value="AUDIT" <?php echo ($department == 'AUDIT') ? 'selected' : ''; ?>>AUDIT</option>
+                    <option value="MED" <?php echo ($department == 'MED') ? 'selected' : ''; ?>>MED</option>
+                    <option value="COMM" <?php echo ($department == 'COMM') ? 'selected' : ''; ?>>COMM</option>
+                    <option value="GA" <?php echo ($department == 'GA') ? 'selected' : ''; ?>>GA</option>
+                    <option value="MECH" <?php echo ($department == 'MECH') ? 'selected' : ''; ?>>MECH</option>
+                    <option value="SAFETY" <?php echo ($department == 'SAFETY') ? 'selected' : ''; ?>>SAFETY</option>
+                    <option value="STORES" <?php echo ($department == 'STORES') ? 'selected' : ''; ?>>STORES</option>
+                    <option value="RRC" <?php echo ($department == 'RRC') ? 'selected' : ''; ?>>RRC</option>
+                    <option value="WAGON" <?php echo ($department == 'WAGON') ? 'selected' : ''; ?>>WAGON</option>
+                    <option value="WELFARE" <?php echo ($department == 'WELFARE') ? 'selected' : ''; ?>>WELFARE</option>
+
                 </select>
             </div>
             <div class="input_box">
-                <label for="billunitno">Bill Unit No.</label>
-                <input class="py-2 px-3" type="text" placeholder="Enter Bill Unit no." name="BILL_UNIT_NO" required />
+                <label for="bill_unit_no">Bill Unit No</label>
+                <input class="py-2 px-3" type="text" placeholder="Enter Bill Unit No" name="BILL_UNIT_NO"
+                    value="<?php echo htmlspecialchars($bill_unit_no); ?>" required />
             </div>
             <div class="input_box">
                 <label for="allocation">Allocation</label>
-                <input class="py-2 px-3" type="number" placeholder="Enter Allocation" name="ALLOCATION" required />
+                <input class="py-2 px-3" type="text" placeholder="Enter Allocation" name="ALLOCATION"
+                    value="<?php echo htmlspecialchars($allocation); ?>" required />
             </div>
-
             <div class="input_box">
                 <label for="operator">Operator</label>
-                <select class="py-2 px-2" id="operator" name="OPERATOR">
-                    <option value="default">Select an Option</option>
-                    <option value="JIO">Jio</option>
-                    <option value="AIRTEL">Airtel</option>
-                    <option value="VI">VI</option>
-                    <option value="BSNL">BSNL</option>
+                <select class="py-2 px-2" id="operator" name="OPERATOR" required>
+                    <option value="default" <?php if ($operator == 'default')
+                        echo 'selected'; ?>>Select operator</option>
+                    <option value="Jio" <?php if ($operator == 'JIO')
+                        echo 'selected'; ?>>Jio</option>
+                    <option value="Airtel" <?php if ($operator == 'Airtel')
+                        echo 'selected'; ?>>Airtel</option>
+                    <option value="VI" <?php if ($operator == 'VI')
+                        echo 'selected'; ?>>VI</option>
+                    <option value="BSNL" <?php if ($operator == 'BSNL')
+                        echo 'selected'; ?>>BSNL</option>
                 </select>
             </div>
             <div class="input_box">
@@ -322,10 +364,12 @@ $conn->close();
                     </div>
                 </div>
             </section>
-            <button class="submit-button" type="submit">Activate</button>
+            <button type="submit" class="submit-button">Submit</button>
         </form>
     </main>
-
+    <footer>
+        <p>&copy; 2024 East Coast Railway</p>
+    </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function ()
         {
@@ -369,6 +413,7 @@ $conn->close();
 
         });
     </script>
+
 </body>
 
 </html>

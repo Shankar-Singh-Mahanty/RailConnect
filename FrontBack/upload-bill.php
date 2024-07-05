@@ -1,3 +1,12 @@
+<?php
+// Include database connection file
+include 'db_connect.php';
+
+// Load the Excel workbook
+require 'phpspreadsheet/vendor/autoload.php';
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +21,12 @@
 
 <body>
     <header>
-    <div class="header-top">
-			<a href="./">
-				<h1>East Coast Railway</h1>
-				<h1>Closed User Group</h1>
-			</a>
-		</div>
+        <div class="header-top">
+            <a href="./">
+                <h1>East Coast Railway</h1>
+                <h1>Closed User Group</h1>
+            </a>
+        </div>
     </header>
 
     <main>
@@ -53,7 +62,7 @@
                     $fileExtension = strtolower(end($fileNameCmps));
 
                     // Define allowed file extensions
-                    $allowedfileExtensions = array('pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv');
+                    $allowedfileExtensions = array('xlsx', 'xls');
 
                     if (in_array($fileExtension, $allowedfileExtensions)) {
                         // Directory where uploaded files will be saved (relative to the project root)
@@ -62,6 +71,7 @@
 
                         // Move the file to the directory
                         if (move_uploaded_file($fileTmpPath, $dest_path)) {
+
                             // Insert file info into database
                             $query = "INSERT INTO uploaded_files (file_name, file_size, file_type, stored_path) VALUES (?, ?, ?, ?)";
                             $stmt = $conn->prepare($query);
