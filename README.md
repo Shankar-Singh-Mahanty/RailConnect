@@ -18,7 +18,7 @@ Before you begin, ensure you have met the following requirements:
 composer require setasign/fpdf
 ```
 
-##2. PhpSpreadsheet Library
+## 2. PhpSpreadsheet Library
 
 **PhpSpreadsheet** is a PHP library written entirely in PHP, designed for reading and writing various spreadsheet file formats, including Excel and LibreOffice Calc.
 
