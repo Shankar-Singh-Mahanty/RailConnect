@@ -16,6 +16,7 @@ Before you begin, ensure you have met the following requirements:
 #### Installation via Composer:
 ```bash
 composer require setasign/fpdf
+```
 
 ##2. PhpSpreadsheet Library
 
