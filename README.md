@@ -2,18 +2,38 @@
 
 Welcome to **RailConnect**! This project, developed as an internship initiative by East Coast Railway, aims to create and manage a closed user group (CUG) with advanced security features and exclusive access. It is perfect for fostering a secure, private, and interactive environment for railway personnel and related stakeholders.
 
+# Features
+
+# Admin Services
+
+The Admin Services page provides a user-friendly interface for managing various aspects of the CUG (Closed User Group) system. Below is an overview of the features available:
+
 ## Features
 
-- **Secure User Authentication**: Ensure that only authorized users can access the group.
-- **Role-Based Access Control**: Assign roles to users and manage permissions effectively.
-- **Private Messaging**: Allow users to communicate privately within the group.
-- **Content Moderation**: Tools to help moderators manage content and ensure compliance with group rules.
-- **Customizable User Profiles**: Let users personalize their profiles with unique information and preferences.
-- **Event Management**: Schedule and manage group events seamlessly.
-- **Activation/Deactivation**: Easily activate or deactivate user accounts.
-- **Plan-Wise Billing**: Manage billing based on user plans.
-- **CUG Number Tracking**: Track and manage Closed User Group numbers efficiently.
-- **Old Record Management**: Record and manage old user and activity records.
+### 1. Create Dealer
+**Description:** This feature allows administrators to create new dealers for the CUG system. Dealers can be added by filling in the necessary details through an intuitive form.
+
+### 2. CUG Details
+**Description:** This section enables administrators to view and manage detailed information about existing CUGs. It provides options to activate or deactivate CUG numbers, ensuring effective management of the system.
+
+### 3. Add New CUG
+**Description:** Administrators can add new CUG numbers to the system through this feature. The process involves entering the required details to register a new CUG.
+
+### 4. Upload CUG Numbers
+**Description:** This feature facilitates the bulk upload of new CUG numbers into the system. Administrators can upload an Excel file containing multiple CUG numbers, streamlining the data entry process.
+
+### 5. Allotment History
+**Description:** This section allows administrators to check the history of CUG number allotments. It provides a detailed record of past allocations, helping in tracking and auditing.
+
+### 6. Allocation-Wise Report
+**Description:** Administrators can generate reports based on CUG allocations using this feature. These reports provide insights into the distribution and usage of CUG numbers.
+
+### 7. CUG Status Report
+**Description:** This feature provides the current status report of all CUG numbers. Administrators can quickly get an overview of active, inactive, and pending CUG numbers.
+
+### 8. Upload CUG Bill
+**Description:** The latest CUG bills can be uploaded to the system using this feature. It allows administrators to keep the billing information up-to-date by uploading the relevant documents.
+
 
 ## Getting Started
 
