@@ -111,17 +111,6 @@ The Dealer Services page provides a user-friendly interface for managing various
 
 4. **Run the application**
 
-### Usage
-
-- **Register and Login**: Create an account or log in to access the group.
-- **Manage Users**: Assign roles and manage user permissions from the admin dashboard.
-- **Private Messaging**: Send and receive private messages within the group.
-- **Profile Customization**: Update your profile with personal information and preferences.
-- **Event Management**: Create and manage events to keep the group engaged.
-- **Activation/Deactivation**: Easily activate or deactivate user accounts from the admin dashboard.
-- **Plan-Wise Billing**: Manage billing plans and track payments efficiently.
-- **CUG Number Tracking**: Track and manage Closed User Group numbers within the system.
-- **Old Record Management**: Record and manage historical data for users and activities.
 
 ### Contributing
 
