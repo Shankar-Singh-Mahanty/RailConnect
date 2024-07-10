@@ -12,7 +12,7 @@ CREATE TABLE bills (
     vas DECIMAL(10, 2) NOT NULL,
     bill_month INT NOT NULL,
     bill_year INT NOT NULL,
-    FOREIGN KEY (cug_number) REFERENCES cugdetails(cug_number)
+    FOREIGN KEY (cug_number) REFERENCES cugdetails(cug_number) ON DELETE CASCADE
 );
 
 -- Insert Data
