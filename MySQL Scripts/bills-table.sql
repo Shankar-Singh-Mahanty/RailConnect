@@ -17,6 +17,8 @@ CREATE TABLE bills (
 
 -- Insert Data
 
+-- Insert Data into bills
+
 INSERT INTO bills (cug_number, periodic_charge, usage_amount, data_amount, voice, video, sms, vas, bill_month, bill_year)
 VALUES
 (1014785798, 550.00, 250.00, 120.00, 60.00, 35.00, 25.00, 15.00, 1, 2024),
