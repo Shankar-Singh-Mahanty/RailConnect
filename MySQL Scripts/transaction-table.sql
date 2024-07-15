@@ -3,7 +3,7 @@
 CREATE TABLE cugdetails_transaction (
     transaction_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     cug_number BIGINT NOT NULL CHECK (CHAR_LENGTH(cug_number) = 10),
-    emp_number BIGINT UNIQUE NOT NULL CHECK (CHAR_LENGTH(emp_number) = 12),
+    emp_number BIGINT NOT NULL CHECK (CHAR_LENGTH(emp_number) = 12),
     empname VARCHAR(100) NOT NULL,
     designation VARCHAR(100) NOT NULL,
     unit VARCHAR(50) NOT NULL,

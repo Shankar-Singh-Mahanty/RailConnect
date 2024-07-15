@@ -77,7 +77,7 @@ checkUser("dealer");
             include 'db_connect.php';
 
             // Default month and year to current month and year
-            $selectedMonth = isset($_GET['month']) ? $_GET['month'] : date('m');
+            $selectedMonth = isset($_GET['month']) ? $_GET['month'] : "01";
             $selectedYear = isset($_GET['year']) ? $_GET['year'] : date('Y');
 
             // Fetch GST percentages

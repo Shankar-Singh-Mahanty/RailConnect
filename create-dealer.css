@@ -183,3 +183,16 @@ footer
 {
     text-decoration: underline;
 }
+
+.success
+{
+    color: white;
+    background-color: green;
+}
+
+.error
+{
+    color: whitesmoke;
+    background-color: red;
+    border: 1px solid red;
+}
