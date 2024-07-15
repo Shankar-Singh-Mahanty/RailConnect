@@ -18,7 +18,11 @@ Before you begin, ensure you have met the following requirements:
 composer require setasign/fpdf
 ```
 
-## 2. PhpSpreadsheet Library
+## 2. XAMPP
+
+## 3. MySQL
+
+## 4. PhpSpreadsheet Library
 
 **PhpSpreadsheet** is a PHP library written entirely in PHP, designed for reading and writing various spreadsheet file formats, including Excel and LibreOffice Calc.
 
@@ -32,7 +36,6 @@ composer require setasign/fpdf
   - `ext-xml`
 
 PhpSpreadsheet provides a comprehensive set of classes and methods to manipulate spreadsheet data directly within PHP scripts, making it a powerful tool for handling Excel and other spreadsheet formats programmatically.
-
 
 
 # Features
@@ -87,14 +90,6 @@ The Dealer Services page provides a user-friendly interface for managing various
 
 
 ## Getting Started
-
-### Prerequisites
-
-- [HTML]()
-- [CSS]()
-- [PHP]()
-- [XAMPP]()
-- [MySQL]()
 
 ### Installation
 
